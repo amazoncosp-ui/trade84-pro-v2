@@ -173,7 +173,7 @@ function VerifiedBadge({ platform, url, small = false }: { platform: 'noones' | 
 function WhyWheel() {
   const points = [
     { icon: Shield, title: 'Trusted Since 2015', desc: 'Operating with an impeccable record for nearly a decade. Thousands of happy partners trust us with their trades every day.', color: '#2563eb', bgLight: '#eff6ff', accent: 'from-blue-500 to-blue-600' },
-    { icon: DollarSign, title: 'No Middleman Fees', desc: 'Direct peer-to-peer trading with transparent pricing. No hidden charges, no surprises — what you see is what you get.', color: '#d97706', bgLight: '#fffbeb', accent: 'from-amber-500 to-amber-600' },
+    { icon: DollarSign, title: 'No Middleman Fees', desc: 'Direct trading with transparent pricing. No hidden charges, no surprises — what you see is what you get.', color: '#d97706', bgLight: '#fffbeb', accent: 'from-amber-500 to-amber-600' },
     { icon: Settings, title: 'Flexible Methods', desc: 'Wide range of amounts and 20+ payment options to suit your exact needs. We adapt to you, not the other way around.', color: '#7c3aed', bgLight: '#f5f3ff', accent: 'from-violet-500 to-purple-600' },
     { icon: Zap, title: 'Instant Response', desc: 'Get replies within minutes on Telegram or WhatsApp. No bots, no queues — real humans who respond fast.', color: '#ea580c', bgLight: '#fff7ed', accent: 'from-orange-500 to-orange-600' },
     { icon: TrendingUp, title: 'Best Rates', desc: 'Competitive rates consistently better than most exchanges. Save more on every single trade you make with us.', color: '#059669', bgLight: '#ecfdf5', accent: 'from-emerald-500 to-green-600' },
@@ -475,60 +475,74 @@ function PaymentMethodsSection({ paymentMethods }: { paymentMethods: Array<{ nam
         </div>
 
         {/* Supported Crypto */}
+        <style>{`
+          .crypto-icon-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .crypto-icon-card:hover {
+            transform: scale(1.08);
+          }
+          .crypto-icon-card:hover .crypto-icon-img {
+            filter: drop-shadow(0 8px 24px rgba(0,0,0,0.18));
+          }
+        `}</style>
         <motion.div
-          className="mt-14 text-center"
-          initial={{ opacity: 0, y: 15 }}
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-8 max-w-3xl mx-auto">
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-800 mb-6">Supported Cryptocurrencies</h3>
-            <div className="flex items-center justify-center gap-6 md:gap-10 flex-wrap">
-              {/* USDT (TRC20) - Green Hexagon */}
-              <div className="flex flex-col items-center gap-2">
-                <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none">
-                  <path d="M40 4L72 22V58L40 76L8 58V22L40 4Z" fill="#26A17B"/>
-                  <path d="M45.2 38.6V34.8H54.4V28H25.6V34.8H34.8V38.6C27.4 39 21.8 40.6 21.8 42.6C21.8 44.6 27.4 46.2 34.8 46.6V58H45.2V46.6C52.6 46.2 58.2 44.6 58.2 42.6C58.2 40.6 52.6 39 45.2 38.6ZM45.2 45.4V45.4C44.8 45.4 42.8 45.6 40.2 45.6C38 45.6 35.6 45.4 34.8 45.4V45.4C28.2 45 23.4 43.8 23.4 42.4C23.4 41 28.2 39.8 34.8 39.4V44.2C35.6 44.2 38 44.4 40.2 44.4C42.8 44.4 44.8 44.2 45.2 44.2V39.4C51.8 39.8 56.6 41 56.6 42.4C56.6 43.8 51.8 45 45.2 45.4Z" fill="white"/>
-                </svg>
-                <span className="text-xs font-bold text-gray-600">USDT (TRC20)</span>
+          <div className="bg-gradient-to-br from-[#0a1628] via-[#0d2847] to-[#133a6b] rounded-3xl px-6 sm:px-12 py-12 md:py-14 max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
+            {/* Subtle background glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10">
+              <span className="inline-block bg-white/10 backdrop-blur-sm text-blue-200 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Multi-Chain Support</span>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2">Supported Cryptocurrencies</h3>
+              <p className="text-blue-200/70 text-sm md:text-base mb-10 max-w-lg mx-auto">Trade the most popular digital assets with confidence.</p>
+
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 md:gap-8 max-w-3xl mx-auto">
+                {[
+                  { name: 'Bitcoin', symbol: 'BTC', img: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png' },
+                  { name: 'Tether', symbol: 'USDT', img: 'https://assets.coingecko.com/coins/images/325/large/Tether.png' },
+                  { name: 'USD Coin', symbol: 'USDC', img: 'https://assets.coingecko.com/coins/images/6319/large/usdc.png' },
+                  { name: 'Ethereum', symbol: 'ETH', img: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png' },
+                  { name: 'BNB', symbol: 'BNB', img: 'https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png' },
+                  { name: 'Solana', symbol: 'SOL', img: 'https://assets.coingecko.com/coins/images/4128/large/solana.png' },
+                ].map((coin, i) => (
+                  <motion.div
+                    key={coin.symbol}
+                    className="crypto-icon-card flex flex-col items-center gap-3 cursor-default"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08, duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center p-2.5 shadow-lg border border-white/10">
+                      <img
+                        src={coin.img}
+                        alt={coin.name}
+                        className="crypto-icon-img w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <span className="block text-white text-xs md:text-sm font-bold leading-tight">{coin.name}</span>
+                      <span className="block text-blue-300/60 text-[11px] font-semibold">({coin.symbol})</span>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-              {/* USDT (ERC20) - Green Hexagon */}
-              <div className="flex flex-col items-center gap-2">
-                <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none">
-                  <path d="M40 4L72 22V58L40 76L8 58V22L40 4Z" fill="#26A17B"/>
-                  <path d="M45.2 38.6V34.8H54.4V28H25.6V34.8H34.8V38.6C27.4 39 21.8 40.6 21.8 42.6C21.8 44.6 27.4 46.2 34.8 46.6V58H45.2V46.6C52.6 46.2 58.2 44.6 58.2 42.6C58.2 40.6 52.6 39 45.2 38.6ZM45.2 45.4V45.4C44.8 45.4 42.8 45.6 40.2 45.6C38 45.6 35.6 45.4 34.8 45.4V45.4C28.2 45 23.4 43.8 23.4 42.4C23.4 41 28.2 39.8 34.8 39.4V44.2C35.6 44.2 38 44.4 40.2 44.4C42.8 44.4 44.8 44.2 45.2 44.2V39.4C51.8 39.8 56.6 41 56.6 42.4C56.6 43.8 51.8 45 45.2 45.4Z" fill="white"/>
-                </svg>
-                <span className="text-xs font-bold text-gray-600">USDT (ERC20)</span>
-              </div>
-              {/* BTC - Orange Circle */}
-              <div className="flex flex-col items-center gap-2">
-                <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none">
-                  <circle cx="40" cy="40" r="36" fill="#F7931A"/>
-                  <path d="M54.8 35.2C55.6 30 51.6 27.2 46.2 25.4L48 18.2L43.6 17L41.8 24C40.6 23.8 39.4 23.4 38.2 23.2L40 16L35.6 14.8L33.8 22C32.8 21.8 31.8 21.6 30.8 21.4L25.2 20L24 24.6C24 24.6 27.2 25.4 27.2 25.4C29 25.8 29.2 27 29.2 27.4L27.2 35.4C27.4 35.4 27.6 35.4 27.8 35.6H27.2L24.4 46.6C24.2 47 23.8 47.8 22.6 47.4C22.6 47.4 19.4 46.6 19.4 46.6L17.2 51.6L22.4 53C23.4 53.2 24.4 53.6 25.4 53.8L23.6 61.2L28 62.4L29.8 55.2C31 55.4 32.2 55.8 33.4 56L31.6 63.2L36 64.4L37.8 57C45.4 58.4 51 57.8 53.4 51C55.4 45.4 53.2 42.2 49.2 40.2C52.2 39.4 54.4 37.6 54.8 35.2ZM45 48.2C43.6 53.8 34.4 50.8 31.6 50L34 41C36.8 41.8 46.6 42.2 45 48.2ZM46.4 35C45.2 40.2 37.4 37.6 35 37L37.2 28.4C39.6 29 47.8 29.4 46.4 35Z" fill="white"/>
-                </svg>
-                <span className="text-xs font-bold text-gray-600">Bitcoin (BTC)</span>
-              </div>
-              {/* ETH - Dark Circle */}
-              <div className="flex flex-col items-center gap-2">
-                <svg className="w-16 h-16 md:w-20 md:h-20" viewBox="0 0 80 80" fill="none">
-                  <circle cx="40" cy="40" r="36" fill="#343434"/>
-                  <path d="M40 16L39.4 18V48.2L40 48.8L54 40.8L40 16Z" fill="#8C8C8C"/>
-                  <path d="M40 16L26 40.8L40 48.8V33.6V16Z" fill="white"/>
-                  <path d="M40 51.6L39.6 52V62.8L40 63.8L54 43.6L40 51.6Z" fill="#8C8C8C"/>
-                  <path d="M40 63.8V51.6L26 43.6L40 63.8Z" fill="white"/>
-                  <path d="M40 48.8L54 40.8L40 33.6V48.8Z" fill="#3C3C3B"/>
-                  <path d="M26 40.8L40 48.8V33.6L26 40.8Z" fill="#8C8C8C"/>
-                </svg>
-                <span className="text-xs font-bold text-gray-600">Ethereum (ETH)</span>
-              </div>
-              {/* And More... */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-2xl md:text-3xl font-extrabold text-gray-500">+</span>
-                </div>
-                <span className="text-xs font-bold text-gray-600">And More...</span>
-              </div>
+
+              <motion.p
+                className="mt-10 text-blue-300/50 text-sm font-medium italic tracking-wide"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                And More...
+              </motion.p>
             </div>
           </div>
         </motion.div>
@@ -566,16 +580,15 @@ export default function Home() {
     { name: 'PAYONEER', color: '#FF4800', logo: 'https://cdn.simpleicons.org/payoneer/FF4800', fallback: 'https://logo.clearbit.com/payoneer.com' },
     { name: 'BANK TRANSFER', color: '#1a56db', logo: '', svgComponent: 'bank' },
     { name: 'N26', color: '#36A18B', logo: 'https://cdn.simpleicons.org/n26/36A18B', fallback: 'https://logo.clearbit.com/n26.com' },
-    { name: 'BUNQ', color: '#39C87C', logo: 'https://cdn.simpleicons.org/bunq/39C87C', fallback: 'https://logo.clearbit.com/bunq.com' },
+    { name: 'BUNQ', color: '#39C87C', logo: 'https://logo.clearbit.com/bunq.com', fallback: 'https://cdn.brandfetch.io/bunq.com/w/512/h/512/logo' },
     { name: 'ZELLE', color: '#6D1ED4', logo: 'https://cdn.simpleicons.org/zelle/6D1ED4', fallback: 'https://logo.clearbit.com/zellepay.com' },
     { name: 'CASH APP', color: '#00D632', logo: 'https://cdn.simpleicons.org/cashapp/00D632', fallback: 'https://logo.clearbit.com/cash.app' },
     { name: 'WIRE TRANSFER', color: '#1E40AF', logo: '', svgComponent: 'wire' },
-    { name: 'BINANCE PAY', color: '#F0B90B', logo: 'https://cdn.simpleicons.org/binance/F0B90B', fallback: 'https://logo.clearbit.com/binance.com' },
     { name: 'BANK OF AMERICA', color: '#E31837', logo: 'https://cdn.simpleicons.org/bankofamerica/E31837', fallback: 'https://logo.clearbit.com/bankofamerica.com' },
-    { name: 'ZEN', color: '#0A2540', logo: 'https://cdn.simpleicons.org/zen/0A2540', fallback: 'https://logo.clearbit.com/zen.com' },
+    { name: 'ZEN', color: '#0A2540', logo: 'https://logo.clearbit.com/zen.com', fallback: 'https://cdn.brandfetch.io/zen.com/w/512/h/512/logo' },
     { name: 'WEBMONEY', color: '#036CB5', logo: 'https://cdn.simpleicons.org/webmoney/036CB5', fallback: 'https://logo.clearbit.com/wmtransfer.com' },
-    { name: 'WORLDFIRST', color: '#E8490F', logo: 'https://cdn.simpleicons.org/worldfirst/E8490F', fallback: 'https://logo.clearbit.com/worldfirst.com' },
-    { name: 'AIRWALLEX', color: '#E94E3D', logo: 'https://cdn.simpleicons.org/airwallex/E94E3D', fallback: 'https://logo.clearbit.com/airwallex.com' },
+    { name: 'WORLDFIRST', color: '#E8490F', logo: 'https://logo.clearbit.com/worldfirst.com', fallback: 'https://cdn.brandfetch.io/worldfirst.com/w/512/h/512/logo' },
+    { name: 'AIRWALLEX', color: '#E94E3D', logo: 'https://logo.clearbit.com/airwallex.com', fallback: 'https://cdn.brandfetch.io/airwallex.com/w/512/h/512/logo' },
   ];
 
   const scrollTo = (id: string) => {
@@ -597,7 +610,7 @@ export default function Home() {
               <Trade84Logo size={40} />
               <div className="flex flex-col">
                 <span className="text-xl font-extrabold text-gray-900 tracking-tight leading-none">Trade<span className="text-blue-600">84</span></span>
-                <span className="text-[10px] font-semibold text-gray-400 tracking-wider uppercase leading-none">Trusted P2P Since 2015</span>
+                <span className="text-[10px] font-semibold text-gray-400 tracking-wider uppercase leading-none">Trusted Since 2015</span>
               </div>
             </a>
 
@@ -614,26 +627,14 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Desktop CTA Buttons */}
-            <div className="hidden md:flex items-center gap-2">
-              <a
-                href="https://t.me/Trade84"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#0088cc] hover:bg-[#006daa] text-white font-semibold py-2.5 px-5 rounded-xl text-sm shadow-md hover:shadow-lg transition-all"
+            {/* Desktop CTA Button */}
+            <div className="hidden md:flex items-center">
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 bg-[#00C853] hover:bg-[#00b848] text-white font-bold py-2.5 px-6 rounded-xl text-sm shadow-md hover:shadow-lg transition-all hover:scale-105"
               >
-                <Send className="w-4 h-4" />
-                Telegram
-              </a>
-              <a
-                href="https://wa.me/84362429792"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fba59] text-white font-semibold py-2.5 px-5 rounded-xl text-sm shadow-md hover:shadow-lg transition-all"
-              >
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp
-              </a>
+                CONTACT US
+              </button>
             </div>
 
             {/* Mobile menu toggle */}
@@ -662,23 +663,13 @@ export default function Home() {
                     {link.label}
                   </button>
                 ))}
-                <div className="flex gap-2 pt-2">
-                  <a
-                    href="https://t.me/Trade84"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center bg-[#0088cc] text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"
+                <div className="pt-2">
+                  <button
+                    onClick={() => { setMobileMenuOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    className="w-full text-center bg-[#00C853] text-white font-bold py-3 px-4 rounded-lg"
                   >
-                    <Send className="w-4 h-4" /> Telegram
-                  </a>
-                  <a
-                    href="https://wa.me/84362429792"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center bg-[#25D366] text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle className="w-4 h-4" /> WhatsApp
-                  </a>
+                    CONTACT US
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -712,9 +703,9 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.7 }}
               >
-                Trade84 — Trusted{' '}
+                Trade84 — Your{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
-                  P2P Trader Since 2015
+                  Trusted Trader Since 2015
                 </span>
               </motion.h1>
 
@@ -756,33 +747,33 @@ export default function Home() {
                 </a>
               </motion.div>
 
-              {/* CTA Buttons */}
+              {/* CTA Button */}
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.7 }}
               >
-                <a
-                  href="https://t.me/Trade84"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 text-white font-extrabold py-4 px-10 rounded-2xl text-lg shadow-xl transition-all duration-300 hover:scale-[1.04] active:scale-[0.97] bg-gradient-to-r from-[#0088cc] to-[#006daa] hover:from-[#006daa] hover:to-[#005a8c]"
-                  style={{ boxShadow: '0 8px 30px rgba(0,136,204,0.35)' }}
+                <style>{`
+                  @keyframes pulseZoom {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.06); }
+                  }
+                  .contact-btn-pulse {
+                    animation: pulseZoom 2s ease-in-out infinite;
+                  }
+                  .contact-btn-pulse:hover {
+                    animation: none;
+                    transform: scale(1.08);
+                  }
+                `}</style>
+                <button
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="contact-btn-pulse inline-flex items-center justify-center text-white font-extrabold py-4 px-14 rounded-2xl text-lg shadow-xl transition-all duration-300 active:scale-[0.97]"
+                  style={{ background: '#00C853', boxShadow: '0 8px 30px rgba(0,200,83,0.4)' }}
                 >
-                  <Send className="w-5 h-5" />
-                  Message on Telegram
-                </a>
-                <a
-                  href="https://wa.me/84362429792"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 text-white font-extrabold py-4 px-10 rounded-2xl text-lg shadow-xl transition-all duration-300 hover:scale-[1.04] active:scale-[0.97] bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                  style={{ boxShadow: '0 8px 30px rgba(34,197,94,0.35)' }}
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Chat on WhatsApp
-                </a>
+                  CONTACT US
+                </button>
               </motion.div>
             </div>
 
@@ -999,7 +990,7 @@ export default function Home() {
           >
             <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Simple Process</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">How It Works</h2>
-            <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto">Four simple steps to complete your P2P trade with Trade84.</p>
+            <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto">Four simple steps to complete your trade with Trade84.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
@@ -1053,7 +1044,7 @@ export default function Home() {
           >
             <span className="inline-block bg-green-100 text-green-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Verified &amp; Trusted</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Trust &amp; Verification</h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">Verified on leading P2P platforms with thousands of successful trades and excellent ratings.</p>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">Verified on leading platforms with thousands of successful trades and excellent ratings.</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
@@ -1117,7 +1108,7 @@ export default function Home() {
           >
             <span className="inline-block bg-amber-100 text-amber-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Testimonials</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">What Our Partners Say</h2>
-            <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto">Real reviews from verified trades on trusted P2P platforms.</p>
+            <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto">Real reviews from verified trades on trusted platforms.</p>
           </motion.div>
 
           {/* Real Reviews CTA */}
@@ -1194,35 +1185,28 @@ export default function Home() {
             </p>
 
             {/* Contact Icons */}
-            <div className="flex gap-5 justify-center items-center mb-10">
-              <a href="https://t.me/Trade84" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/10 backdrop-blur-sm hover:bg-[#0088cc] rounded-2xl flex items-center justify-center transition-all hover:scale-110" title="@Trade84 on Telegram">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-              </a>
-              <a href="https://wa.me/84362429792" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/10 backdrop-blur-sm hover:bg-[#25D366] rounded-2xl flex items-center justify-center transition-all hover:scale-110" title="+84 362 429 792 on WhatsApp">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-8">
+            <div className="flex gap-6 justify-center items-center mb-8">
               <motion.a
                 href="https://t.me/Trade84"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-white text-blue-700 font-bold py-4 px-10 rounded-2xl text-lg shadow-2xl min-w-[240px] transition-all"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,255,255,0.25)' }}
-                whileTap={{ scale: 0.97 }}
+                className="w-16 h-16 bg-[#0088cc] rounded-2xl flex items-center justify-center shadow-lg hover:shadow-[0_0_30px_rgba(0,136,204,0.5)] transition-all"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
+                title="@Trade84 on Telegram"
               >
-                <Send className="w-5 h-5" /> Message on Telegram
+                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
               </motion.a>
               <motion.a
                 href="https://wa.me/84362429792"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-10 rounded-2xl text-lg shadow-2xl min-w-[240px] transition-all"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,197,94,0.3)' }}
-                whileTap={{ scale: 0.97 }}
+                className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center shadow-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all"
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
+                title="+84 362 429 792 on WhatsApp"
               >
-                <MessageCircle className="w-5 h-5" /> Chat on WhatsApp
+                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
               </motion.a>
             </div>
 
@@ -1246,11 +1230,11 @@ export default function Home() {
                 <Trade84Logo size={36} />
                 <div>
                   <span className="text-lg font-extrabold text-white">Trade<span className="text-blue-400">84</span></span>
-                  <p className="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Trusted P2P Since 2015</p>
+                  <p className="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Trusted Since 2015</p>
                 </div>
               </a>
               <p className="text-gray-400 text-sm leading-relaxed mb-5">
-                Professional peer-to-peer crypto trading since 2015. Fast, secure, and reliable — your trusted partner for every trade.
+                Professional crypto trading since 2015. Fast, secure, and reliable — your trusted partner for every trade.
               </p>
               <div className="flex gap-3">
                 <a href="https://t.me/Trade84" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 hover:bg-[#0088cc] rounded-xl flex items-center justify-center transition-colors" title="Message on Telegram">
@@ -1284,29 +1268,30 @@ export default function Home() {
             {/* Contact Info */}
             <div>
               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-5">Contact</h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Send className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                  <div>
-                    <span className="text-sm text-gray-400">Telegram</span>
-                    <a href="https://t.me/Trade84" target="_blank" rel="noopener noreferrer" className="block text-sm text-white font-medium hover:text-blue-400 transition-colors">@Trade84</a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MessageCircle className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
-                  <div>
-                    <span className="text-sm text-gray-400">WhatsApp</span>
-                    <a href="https://wa.me/84362429792" target="_blank" rel="noopener noreferrer" className="block text-sm text-white font-medium hover:text-green-400 transition-colors">+84 362 429 792</a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />
-                  <div>
-                    <span className="text-sm text-gray-400">Availability</span>
-                    <span className="block text-sm text-white font-medium">24/7 — Always Online</span>
-                  </div>
-                </li>
-              </ul>
+              <div className="flex gap-5 justify-center md:justify-start mb-6">
+                <a
+                  href="https://t.me/Trade84"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 bg-[#0088cc] rounded-2xl flex items-center justify-center shadow-lg hover:shadow-[0_0_25px_rgba(0,136,204,0.5)] hover:scale-110 transition-all duration-300"
+                  title="@Trade84 on Telegram"
+                >
+                  <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                </a>
+                <a
+                  href="https://wa.me/84362429792"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 bg-[#25D366] rounded-2xl flex items-center justify-center shadow-lg hover:shadow-[0_0_25px_rgba(37,211,102,0.5)] hover:scale-110 transition-all duration-300"
+                  title="+84 362 429 792 on WhatsApp"
+                >
+                  <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                </a>
+              </div>
+              <div className="flex items-center gap-2 justify-center md:justify-start text-sm text-gray-400">
+                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>24/7 — Always Online</span>
+              </div>
             </div>
 
             {/* Verified Profiles & Legal */}
@@ -1382,7 +1367,7 @@ export default function Home() {
                 <a href="https://wa.me/84362429792" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-xs transition-colors">WhatsApp</a>
               </div>
               <p className="text-gray-600 text-xs text-center">
-                Independent P2P trader — not a financial institution. Cryptocurrency trading involves risk.
+                Independent trader — not a financial institution. Cryptocurrency trading involves risk.
               </p>
             </div>
           </div>

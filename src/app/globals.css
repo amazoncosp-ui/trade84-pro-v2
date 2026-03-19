@@ -5,79 +5,81 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
-  
+
   body {
-    @apply font-sans antialiased;
+    @apply font-sans antialiased text-gray-900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
-
-@layer components {
-  .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
-  }
-  
-  .card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
-  }
-  
-  .section-padding {
-    @apply py-16 md:py-24;
-  }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-}
-
-/* Smooth animations */
-* {
-  box-sizing: border-box;
-}
-
-/* Loading animations */
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: .5;
-  }
-}
-
-/* Glow effect for buttons */
-.btn-glow {
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
-  transition: box-shadow 0.3s ease;
-}
-
-.btn-glow:hover {
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
-}
-
-/* Scroll indicator */
-html {
-  scroll-padding-top: 2rem;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f5f9;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+/* Selection color */
+::selection {
+  background-color: #bfdbfe;
+  color: #1e3a5f;
+}
+
+/* Infinite marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+.animate-marquee {
+  animation: marquee 12s linear infinite;
+}
+
+/* Section title button style — compact pill like Telegram/WhatsApp buttons */
+.section-title-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.25);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.section-title-btn:hover {
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.45), 0 0 12px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+  background: #1d4ed8;
+}
+@media (min-width: 768px) {
+  .section-title-btn {
+    font-size: 0.85rem;
+    padding: 0.55rem 1.5rem;
+  }
+}
+
+/* Payment method name hover */
+.method-name-bar {
+  transition: color 0.25s ease;
+  color: #374151;
+}
+.group:hover .method-name-bar {
+  color: #111827 !important;
 }
