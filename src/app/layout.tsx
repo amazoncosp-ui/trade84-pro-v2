@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: "Verified P2P trader since 2015. Best rates on USDT, BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ methods. Contact via Telegram @Trade84 or WhatsApp.",
     type: "website",
     locale: "en_US",
-    url: "https://trade84-pro-v2.vercel.app",
+    url: "https://trade84.com",
     siteName: "Trade84",
   },
   twitter: {
@@ -55,7 +55,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Trade84",
-              "url": "https://trade84-pro-v2.vercel.app",
+              "url": "https://trade84.com",
               "description": "Professional P2P crypto trading since 2015 — buy and sell USDT, BTC, ETH with SEPA, Revolut, Wise, PayPal, Payoneer and 20+ payment methods.",
               "foundingDate": "2015",
               "contactPoint": [
@@ -89,7 +89,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Trade84",
-              "url": "https://trade84-pro-v2.vercel.app",
+              "url": "https://trade84.com",
               "description": "Trusted P2P Trader Since 2015 — Buy & Sell USDT, BTC, ETH with PayPal, Revolut, SEPA, Wise & 20+ Methods"
             })
           }}
