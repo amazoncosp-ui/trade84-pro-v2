@@ -8,13 +8,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Trade84 - Trusted P2P Trader Since 2015 | Buy & Sell USDT, BTC with PayPal, Revolut, SEPA, Wise",
-  description: "Trade84 — verified P2P crypto trader since 2015. Buy & sell USDT (TRC20/ERC20), BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ payment methods. Contact via Telegram @Trade84 or WhatsApp +84 362 429 792.",
+  description: "Trade84 — verified P2P crypto trader since 2015. Buy & sell USDT (TRC20/ERC20), BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ payment methods. Contact via Telegram @Trade84.",
   keywords: "P2P trading, buy USDT, sell USDT, USDT to EUR, buy BTC, sell BTC, PayPal crypto, Revolut crypto, SEPA crypto, SEPA Instant, Wise crypto, Payoneer crypto, P2P trader, Trade84, OTC trading, best rates, cryptocurrency exchange, USDT TRC20, USDT ERC20, verified trader, Noones, LocalCoinSwap",
   authors: [{ name: "Trade84" }],
   robots: "index, follow",
   openGraph: {
     title: "Trade84 - Trusted P2P Trader Since 2015 | Buy & Sell USDT, BTC, ETH",
-    description: "Verified P2P trader since 2015. Best rates on USDT, BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ methods. Contact via Telegram @Trade84 or WhatsApp.",
+    description: "Verified P2P trader since 2015. Best rates on USDT, BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ methods. Contact via Telegram @Trade84.",
     type: "website",
     locale: "en_US",
     url: "https://trade84.com",
@@ -65,18 +65,10 @@ export default function RootLayout({
                   "contactType": "customer service",
                   "url": "https://t.me/Trade84",
                   "availableLanguage": "English"
-                },
-                {
-                  "@type": "ContactPoint",
-                  "contactType": "customer service",
-                  "telephone": "+84362429792",
-                  "url": "https://wa.me/84362429792",
-                  "availableLanguage": "English"
                 }
               ],
               "sameAs": [
                 "https://t.me/Trade84",
-                "https://wa.me/84362429792",
                 "https://noones.com/user/trade84",
                 "https://localcoinswap.com/profile/trade84"
               ]
