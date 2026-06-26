@@ -175,7 +175,7 @@ function WhyWheel() {
     { icon: Shield, title: 'Trusted Since 2015', desc: 'Operating with an impeccable record for nearly a decade. Thousands of happy partners trust us with their trades every day.', color: '#2563eb', bgLight: '#eff6ff', accent: 'from-blue-500 to-blue-600' },
     { icon: DollarSign, title: 'No Middleman Fees', desc: 'Direct trading with transparent pricing. No hidden charges, no surprises — what you see is what you get.', color: '#d97706', bgLight: '#fffbeb', accent: 'from-amber-500 to-amber-600' },
     { icon: Settings, title: 'Flexible Methods', desc: 'Wide range of amounts and 20+ payment options to suit your exact needs. We adapt to you, not the other way around.', color: '#7c3aed', bgLight: '#f5f3ff', accent: 'from-violet-500 to-purple-600' },
-    { icon: Zap, title: 'Instant Response', desc: 'Get replies within minutes on Telegram or WhatsApp. No bots, no queues — real humans who respond fast.', color: '#ea580c', bgLight: '#fff7ed', accent: 'from-orange-500 to-orange-600' },
+    { icon: Zap, title: 'Instant Response', desc: 'Get replies within minutes on Telegram. No bots, no queues — real humans who respond fast.', color: '#ea580c', bgLight: '#fff7ed', accent: 'from-orange-500 to-orange-600' },
     { icon: TrendingUp, title: 'Best Rates', desc: 'Competitive rates consistently better than most exchanges. Save more on every single trade you make with us.', color: '#059669', bgLight: '#ecfdf5', accent: 'from-emerald-500 to-green-600' },
     { icon: Headphones, title: 'Personal Support', desc: '24/7 dedicated human support team that actually cares about your experience. We treat every partner like a VIP.', color: '#0891b2', bgLight: '#ecfeff', accent: 'from-cyan-500 to-teal-600' },
   ];
@@ -206,7 +206,7 @@ function WhyWheel() {
   );
 }
 
-/* ───── Floating Contact Buttons (WhatsApp + Telegram) ───── */
+/* ───── Floating Contact Button (Telegram) ───── */
 function FloatingContactButtons() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -248,25 +248,6 @@ function FloatingContactButtons() {
         </span>
         <div className="w-14 h-14 rounded-full bg-[#0088cc] shadow-[0_4px_20px_rgba(0,136,204,0.5)] flex items-center justify-center">
           <Send className="w-6 h-6 text-white" />
-        </div>
-      </motion.a>
-
-      <motion.a
-        href="https://wa.me/84362429792"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative flex items-center"
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
-      >
-        <span className="absolute right-[calc(100%+8px)] whitespace-nowrap bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-          Chat on WhatsApp
-        </span>
-        <div className="w-14 h-14 rounded-full bg-[#25D366] shadow-[0_4px_20px_rgba(37,211,102,0.5)] flex items-center justify-center">
-          <MessageCircle className="w-6 h-6 text-white" />
         </div>
       </motion.a>
     </div>
@@ -996,7 +977,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             {[
               { icon: Grid3X3, title: 'Choose Your Pair', desc: 'Select the crypto you want to buy or sell and your preferred payment method from 20+ options.', color: 'from-blue-500 to-blue-700' },
-              { icon: MessageCircle, title: 'Contact Us', desc: 'Reach out on Telegram or WhatsApp. We respond within minutes — real humans, no bots.', color: 'from-sky-500 to-cyan-600' },
+              { icon: MessageCircle, title: 'Contact Us', desc: 'Reach out on Telegram. We respond within minutes — real humans, no bots.', color: 'from-sky-500 to-cyan-600' },
               { icon: Send, title: 'Make the Transfer', desc: 'Send the agreed amount via your chosen method. We confirm receipt promptly.', color: 'from-violet-500 to-purple-700' },
               { icon: CheckCircle, title: 'Trade Complete', desc: 'Receive your crypto or fiat directly. Fast, secure, and hassle-free every time.', color: 'from-emerald-500 to-green-700' },
             ].map((step, index) => (
@@ -1197,17 +1178,6 @@ export default function Home() {
               >
                 <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
               </motion.a>
-              <motion.a
-                href="https://wa.me/84362429792"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-16 h-16 bg-[#25D366] rounded-2xl flex items-center justify-center shadow-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all"
-                whileHover={{ scale: 1.15 }}
-                whileTap={{ scale: 0.95 }}
-                title="+84 362 429 792 on WhatsApp"
-              >
-                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              </motion.a>
             </div>
 
             {/* Verified links in contact */}
@@ -1239,9 +1209,6 @@ export default function Home() {
               <div className="flex gap-3">
                 <a href="https://t.me/Trade84" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 hover:bg-[#0088cc] rounded-xl flex items-center justify-center transition-colors" title="Message on Telegram">
                   <Send className="w-4 h-4" />
-                </a>
-                <a href="https://wa.me/84362429792" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 hover:bg-[#25D366] rounded-xl flex items-center justify-center transition-colors" title="Chat on WhatsApp">
-                  <MessageCircle className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -1277,15 +1244,6 @@ export default function Home() {
                   title="@Trade84 on Telegram"
                 >
                   <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                </a>
-                <a
-                  href="https://wa.me/84362429792"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 bg-[#25D366] rounded-2xl flex items-center justify-center shadow-lg hover:shadow-[0_0_25px_rgba(37,211,102,0.5)] hover:scale-110 transition-all duration-300"
-                  title="+84 362 429 792 on WhatsApp"
-                >
-                  <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                 </a>
               </div>
               <div className="flex items-center gap-2 justify-center md:justify-start text-sm text-gray-400">
@@ -1364,7 +1322,6 @@ export default function Home() {
                   <CheckCircle className="w-3 h-3 text-green-500" /> LocalCoinSwap
                 </a>
                 <a href="https://t.me/Trade84" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-xs transition-colors">Telegram</a>
-                <a href="https://wa.me/84362429792" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-xs transition-colors">WhatsApp</a>
               </div>
               <p className="text-gray-600 text-xs text-center">
                 Independent trader — not a financial institution. Cryptocurrency trading involves risk.
