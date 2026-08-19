@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/index.php",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 
   images: {
     unoptimized: true,
@@ -19,9 +28,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'www.worldfirst.com',
-      }
+      },
     ],
   },
+
   eslint: {
     ignoreDuringBuilds: true,
   },
