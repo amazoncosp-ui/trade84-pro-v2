@@ -8,38 +8,44 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://trade84.com"),
-  title:
-    "Trade84 - Trusted P2P Trader Since 2015 | Buy & Sell USDT, BTC with PayPal, Revolut, SEPA, Wise",
+
+  title: "Buy & Sell USDT with PayPal, Wise, Revolut & SEPA | Trade84",
+
   description:
-    "Trade84 — verified P2P crypto trader since 2015. Buy & sell USDT (TRC20/ERC20), BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ payment methods. Contact via Telegram @Trade84.",
-  
+    "Trade84 is a trusted P2P crypto trader since 2015. Buy and sell USDT, BTC and ETH with PayPal, Wise, Revolut, SEPA and 20+ payment methods.",
+
   authors: [{ name: "Trade84" }],
-  robots: "index, follow",
-  alternates: {
-    canonical: "/",
+
+  robots: {
+    index: true,
+    follow: true,
   },
+
+  alternates: {
+    canonical: "https://trade84.com/",
+  },
+
   openGraph: {
-    title:
-      "Trade84 - Trusted P2P Trader Since 2015 | Buy & Sell USDT, BTC, ETH",
+    title: "Buy & Sell USDT with PayPal, Wise, Revolut & SEPA | Trade84",
+
     description:
-      "Verified P2P trader since 2015. Best rates on USDT, BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ methods. Contact via Telegram @Trade84.",
+      "Trusted P2P crypto trader since 2015. Buy and sell USDT, BTC and ETH with PayPal, Wise, Revolut, SEPA and 20+ payment methods.",
+
     type: "website",
     locale: "en_US",
     url: "https://trade84.com/",
     siteName: "Trade84",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Trade84 - Trusted P2P Trader Since 2015",
+
+    title: "Buy & Sell USDT with PayPal, Wise, Revolut & SEPA | Trade84",
+
     description:
-      "Verified P2P crypto trader. Buy & sell USDT, BTC, ETH with 20+ payment methods. Best rates, instant response.",
+      "Trusted P2P crypto trader since 2015. Buy and sell USDT, BTC and ETH with PayPal, Wise, Revolut, SEPA and 20+ payment methods.",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
+
   other: {
     "theme-color": "#2563eb",
     "apple-mobile-web-app-capable": "yes",
@@ -60,10 +66,12 @@ export default function RootLayout({
           type="image/svg+xml"
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M11 17h2v-1h1a1.5 1.5 0 0 0 0-3h-3v-1h4V9h-2V8h-2v1h-1a1.5 1.5 0 0 0 0 3h3v1H9v3h2v1Z'/><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Z'/></svg>"
         />
+
         <meta
           name="google-site-verification"
           content="vgv7ONxIXct_-0QI7fCEqxl1M-uAkMWtkql_9VlnS40"
         />
+
         <meta name="format-detection" content="telephone=no" />
 
         <script
