@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     "Trade84 - Trusted P2P Trader Since 2015 | Buy & Sell USDT, BTC with PayPal, Revolut, SEPA, Wise",
   description:
     "Trade84 — verified P2P crypto trader since 2015. Buy & sell USDT (TRC20/ERC20), BTC, ETH with SEPA, Revolut, Wise, PayPal & 20+ payment methods. Contact via Telegram @Trade84.",
-  keywords:
-    "P2P trading, buy USDT, sell USDT, USDT to EUR, buy BTC, sell BTC, PayPal crypto, Revolut crypto, SEPA crypto, SEPA Instant, Wise crypto, Payoneer crypto, P2P trader, Trade84, OTC trading, best rates, cryptocurrency exchange, USDT TRC20, USDT ERC20, verified trader, LocalCoinSwap",
+  
   authors: [{ name: "Trade84" }],
   robots: "index, follow",
   alternates: {
