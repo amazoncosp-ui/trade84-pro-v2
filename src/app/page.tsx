@@ -121,12 +121,13 @@ function FloatingIcons() {
 }
 
 /* ───── Verified Profile Badge Component ───── */
-function VerifiedBadge({ platform, url, small = false }: { platform: 'noones' | 'localcoinswap'; url: string; small?: boolean }) {
-  const config = {
-    noones: { name: 'Noones', gradient: 'from-blue-600 to-indigo-700', letter: 'N', hoverBorder: 'hover:border-blue-300' },
-    localcoinswap: { name: 'LocalCoinSwap', gradient: 'from-green-500 to-emerald-700', letter: 'LC', hoverBorder: 'hover:border-green-300' },
+function VerifiedBadge({ url, small = false }: { url: string; small?: boolean }) {
+  const c = {
+    name: 'LocalCoinSwap',
+    gradient: 'from-green-500 to-emerald-700',
+    letter: 'LC',
+    hoverBorder: 'hover:border-green-300',
   };
-  const c = config[platform];
 
   if (small) {
     return (
@@ -707,16 +708,6 @@ export default function Home() {
                 transition={{ delay: 0.45, duration: 0.7 }}
               >
                 <a
-                  href="https://noones.com/user/trade84"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-300 hover:shadow-md text-gray-700 font-semibold px-4 py-2.5 rounded-xl text-sm transition-all"
-                >
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  Verified on Noones
-                  <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
-                </a>
-                <a
                   href="https://localcoinswap.com/profile/trade84"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -808,8 +799,7 @@ export default function Home() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.1, duration: 0.6 }}
                       >
-                        <VerifiedBadge platform="noones" url="https://noones.com/user/trade84" small />
-                        <VerifiedBadge platform="localcoinswap" url="https://localcoinswap.com/profile/trade84" small />
+                        <VerifiedBadge url="https://localcoinswap.com/profile/trade84" small />
                       </motion.div>
                     </div>
                   </div>
@@ -884,18 +874,6 @@ export default function Home() {
             {/* Verified Badges Below Stats */}
             <div className="flex flex-wrap justify-center gap-3 mt-6">
               <a
-                href="https://noones.com/user/trade84"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-300 hover:shadow-lg text-gray-700 font-bold px-5 py-3 rounded-xl text-sm transition-all"
-              >
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-extrabold text-xs">N</span>
-                </div>
-                <span>Verified on Noones</span>
-                <CheckCircle className="w-4 h-4 text-green-500" />
-              </a>
-              <a
                 href="https://localcoinswap.com/profile/trade84"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -937,15 +915,6 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <a
-              href="https://noones.com/user/trade84"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 hover:bg-blue-100 text-blue-700 font-bold px-5 py-3 rounded-xl text-sm transition-all"
-            >
-              <CheckCircle className="w-4 h-4 text-green-500" />
-              Check our Noones Profile →
-            </a>
             <a
               href="https://localcoinswap.com/profile/trade84"
               target="_blank"
@@ -1045,8 +1014,7 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <VerifiedBadge platform="noones" url="https://noones.com/user/trade84" />
-                <VerifiedBadge platform="localcoinswap" url="https://localcoinswap.com/profile/trade84" />
+                <VerifiedBadge url="https://localcoinswap.com/profile/trade84" />
               </div>
 
               {/* Trust indicators */}
@@ -1108,22 +1076,10 @@ export default function Home() {
               </div>
               <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">5 / 5 Average Rating</h3>
               <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-                Our real customer reviews are available directly on our verified Noones and LocalCoinSwap profiles. We believe in full transparency — check our trade history and feedback from real partners.
+                Our real customer reviews are available directly on our verified LocalCoinSwap profile. We believe in full transparency — check our trade history and feedback from real partners.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://noones.com/user/trade84"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 px-8 rounded-2xl text-base shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all"
-                >
-                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                    <span className="font-extrabold text-sm">N</span>
-                  </div>
-                  View Reviews on Noones
-                  <ExternalLink className="w-4 h-4 opacity-70" />
-                </a>
                 <a
                   href="https://localcoinswap.com/profile/trade84"
                   target="_blank"
@@ -1182,8 +1138,7 @@ export default function Home() {
 
             {/* Verified links in contact */}
             <div className="flex flex-wrap justify-center gap-3">
-              <VerifiedBadge platform="noones" url="https://noones.com/user/trade84" small />
-              <VerifiedBadge platform="localcoinswap" url="https://localcoinswap.com/profile/trade84" small />
+              <VerifiedBadge url="https://localcoinswap.com/profile/trade84" small />
             </div>
           </motion.div>
         </div>
@@ -1258,18 +1213,6 @@ export default function Home() {
               <ul className="space-y-3 mb-6">
                 <li>
                   <a
-                    href="https://noones.com/user/trade84"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"
-                  >
-                    <CheckCircle className="w-3.5 h-3.5 text-green-400" />
-                    Noones — trade84
-                    <ExternalLink className="w-3 h-3 opacity-50" />
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://localcoinswap.com/profile/trade84"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1315,9 +1258,6 @@ export default function Home() {
                 © 2026 Trade84. All rights reserved.
               </p>
               <div className="flex items-center gap-4">
-                <a href="https://noones.com/user/trade84" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-xs transition-colors flex items-center gap-1">
-                  <CheckCircle className="w-3 h-3 text-green-500" /> Noones
-                </a>
                 <a href="https://localcoinswap.com/profile/trade84" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-xs transition-colors flex items-center gap-1">
                   <CheckCircle className="w-3 h-3 text-green-500" /> LocalCoinSwap
                 </a>
